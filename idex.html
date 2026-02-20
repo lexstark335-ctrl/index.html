@@ -512,6 +512,21 @@
             composer.render();
         }
         init();
+        // 在 init 函数执行完后，自动加载你的预设图片
+function loadPresetImages() {
+    const presetPhotos = [
+        'images/p1.jpg', 
+        'images/p2.jpg', 
+        'images/p3.jpg'
+    ];
+    
+    presetPhotos.forEach(url => {
+        new THREE.TextureLoader().load(url, (t) => {
+            t.colorSpace = THREE.SRGBColorSpace;
+            addPhotoToScene(t); // 调用你代码中已有的函数
+        });
+    });
+}
     </script>
 </body>
 </html>
