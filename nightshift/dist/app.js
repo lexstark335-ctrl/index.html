@@ -148,7 +148,8 @@ $('#motion-toggle').addEventListener('click',()=>{reduced=!reduced;try{localStor
 async function launchGame(){
   if(gameDialog.open)return;
   gameDialog.showModal();scenery?.setPaused(true);
-  try{if(!game){gameLoading??=import('./game.js');const {createGame}=await gameLoading;game=createGame();}game.open();}catch(error){$('#game-error').hidden=false;$('#game-error').textContent='赛车暂时无法启动。请确认浏览器支持 WebGL，刷新后重试。主页内容仍可正常使用。';console.warn('Game initialization:',error);}
+  $('#game-error').hidden=true;
+  try{if(!game){gameLoading??=import('./game.js?v=20261101-gridfix');const {createGame}=await gameLoading;game=createGame();}game.open();}catch(error){gameLoading=null;$('#game-error').hidden=false;$('#game-error').textContent=['WEBGL_UNAVAILABLE','GRAPHICS_UNAVAILABLE'].includes(error.code)?'当前浏览器无法创建游戏画面。请用最新版 Edge 或 Chrome 打开此页面后重试。':'赛车初始化遇到错误。请刷新到最新版本后重试；个人资料仍可正常浏览。';console.warn('Game initialization:',error);}
 }
 $$('.launch-game').forEach(button=>button.addEventListener('click',launchGame));
 $('#game-exit').addEventListener('click',()=>gameDialog.close());
@@ -164,7 +165,7 @@ async function init(){
     else{$('#editor-mode').textContent='修改先保存到当前浏览器。导出资料并提交到 GitHub 后，才能更新所有访客看到的公开版本。';form.querySelector('[type="submit"]').textContent='保存到此浏览器';$('#github-publish-help').hidden=false;}
     render();
   }catch(error){$('#hero-intro').textContent='资料暂时无法读取。请使用项目自带的启动方式运行，并检查 content.json 格式。';toast(error.message);console.error(error);}
-  const start=()=>import('./visual.js').then(({createScenery})=>{scenery=createScenery($('#world-canvas'),{reduced});}).catch(error=>console.info('Static visual fallback:',error.message));
+  const start=()=>import('./visual.js?v=20261101-gridfix').then(({createScenery})=>{scenery=createScenery($('#world-canvas'),{reduced});}).catch(error=>console.info('Static visual fallback:',error.message));
   if('requestIdleCallback'in window)requestIdleCallback(start,{timeout:1200});else setTimeout(start,150);
 }
 init();

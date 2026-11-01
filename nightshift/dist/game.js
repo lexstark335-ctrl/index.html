@@ -1,9 +1,9 @@
-import {createWorld,makeCar} from './world.js';
+import {createWorld,makeCar} from './world.js?v=20261101-gridfix';
 import {RULES,collision,createState,boost,tick,awardPass} from './game-model.js';
 const $=selector=>document.querySelector(selector);
 const BEST_KEY='nightshift.racer.best.v1';
 export function createGame(){
-  const canvas=$('#game-canvas');const world=createWorld(canvas,{game:true});const player=makeCar({body:0x57327a,trim:0xeaa2e0});world.scene.add(player);
+  let canvas=$('#game-canvas');const world=createWorld(canvas,{game:true});canvas=world.canvas;$('#game-dialog').dataset.renderMode=world.renderMode;const player=makeCar({body:0x57327a,trim:0xeaa2e0});world.scene.add(player);
   const traffic=Array.from({length:8},(_,index)=>{const mesh=makeCar({body:[0x263d57,0x51416d,0x574454,0x324c4d][index%4],trim:index%2?0xe8b2ff:0x8ad6db,traffic:true});mesh.visible=false;world.scene.add(mesh);return{mesh,active:false,lane:0,z:0};});
   let state=createState(),best=0,opened=false,raf=0,last=0,elapsed=0,sound=false,audio,popTimer,lastScore=-1,lastSpeed=-1,lastBoost='',saved=true;
   const keys={left:false,right:false};const touch={left:false,right:false};
@@ -13,7 +13,7 @@ export function createGame(){
   const resetInputs=()=>{keys.left=false;keys.right=false;touch.left=false;touch.right=false;$('#steer-left').classList.remove('held');$('#steer-right').classList.remove('held');};
   function note(frequency=440,duration=.09,type='sine',volume=.04){if(!sound)return;try{audio??=new(window.AudioContext||window.webkitAudioContext)();audio.resume();const oscillator=audio.createOscillator(),gain=audio.createGain();oscillator.type=type;oscillator.frequency.setValueAtTime(frequency,audio.currentTime);oscillator.frequency.exponentialRampToValueAtTime(Math.max(60,frequency*.5),audio.currentTime+duration);gain.gain.setValueAtTime(volume,audio.currentTime);gain.gain.exponentialRampToValueAtTime(.001,audio.currentTime+duration);oscillator.connect(gain);gain.connect(audio.destination);oscillator.start();oscillator.stop(audio.currentTime+duration);}catch{}}
   function pop(message){$('#game-pop').textContent=message;clearTimeout(popTimer);popTimer=setTimeout(()=>$('#game-pop').textContent='',1100);}
-  function overlay(title,status,button){$('#game-overlay').hidden=false;$('#game-title').replaceChildren(document.createTextNode(title));$('#game-status').textContent=status;$('#game-start').textContent=button;}
+  function overlay(title,status,button){$('#game-overlay').hidden=false;$('#game-title').replaceChildren(document.createTextNode(title));$('#game-status').textContent=status+(world.renderMode==='canvas'?'\n已启用兼容画面，操作和计分保持一致。':'');$('#game-start').textContent=button;}
   function ui(){const score=Math.floor(state.score),speed=Math.round(state.speed*4.2);if(score!==lastScore){lastScore=score;$('#game-score').textContent=String(score).padStart(6,'0');}if(speed!==lastSpeed){lastSpeed=speed;$('#game-speed').textContent=String(speed).padStart(3,'0');}
     const status=state.boost>0?'active':state.cooldown>0?'cooldown':'ready';const label=status==='active'?`加速 ${state.boost.toFixed(1)}s`:status==='cooldown'?`冷却 ${state.cooldown.toFixed(1)}s`:'BOOST';if(lastBoost!==label){lastBoost=label;$('#game-boost span').textContent=label;}$('#game-boost').disabled=state.phase!=='running'||status!=='ready';$('#game-boost').classList.toggle('active',status==='active');$('#game-pause').textContent=state.phase==='paused'?'继续 P':'暂停 P';$('#game-pause').disabled=!['running','paused'].includes(state.phase);
   }

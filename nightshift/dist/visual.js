@@ -1,4 +1,4 @@
-import {createWorld,makeCar} from './world.js';
+import {createWorld,makeCar} from './world.js?v=20261101-gridfix';
 export function createScenery(canvas,{reduced=false}={}) {
   if(!canvas)return null;
   const world=createWorld(canvas);const car=makeCar();car.position.set(6.1,0,3);car.rotation.y=-.14;world.scene.add(car);
