@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#100d19">
+  <meta name="description" content="一个关于研究、创作与好奇心的个人空间。探索作品，或驶入霓虹之夜。">
+  <meta property="og:title" content="NIGHTSHIFT · 夜行频率">
+  <meta property="og:description" content="在数字边界，构建我的宇宙。">
+  <meta property="og:type" content="website">
+  <title>NIGHTSHIFT · 夜行频率</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="header">
+    <a class="brand" href="#" aria-label="NIGHTSHIFT 首页"><span class="brand-mark">✳</span><span>NIGHTSHIFT<span class="brand-sub">夜行频率 / PERSONAL SPACE</span></span></a>
+    <nav aria-label="主导航"><a href="#work">精选作品 <span>01</span></a><a href="#about">关于我 <span>02</span></a><a href="#contact">联系 <span>03</span></a></nav>
+    <button class="editor-open header-editor" type="button"><span class="edit-icon">↗</span> 编辑内容</button>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-art" aria-hidden="true"><div class="fallback-city"><div class="fallback-sun"></div><div class="fallback-buildings"></div><div class="fallback-grid"></div></div><canvas id="world-canvas"></canvas></div>
+      <div class="hero-shade"></div><div class="hero-corner corner-tl"></div><div class="hero-corner corner-br"></div>
+      <div class="hero-content">
+        <div class="eyebrow"><span class="live-dot"></span> HELLO, WORLD. <span class="tiny-line"></span> 欢迎进入我的频道</div>
+        <h1 id="hero-title">在数字边界，<br><span>构建我的宇宙。</span></h1>
+        <p id="hero-intro" class="hero-intro"></p>
+        <div class="hero-actions"><a class="button button-yellow" href="#work">探索我的作品 <span>↗</span></a><button class="button button-outline launch-game" type="button"><span class="play-icon">▷</span> 夜间兜风 <span class="keycap">G</span></button></div>
+        <div class="hero-person"><span class="mini-avatar">Y<span>✦</span></span><div><strong id="hero-name"></strong><span id="hero-role"></span></div><span class="person-divider"></span><span class="person-note">保持好奇<br>持续创造</span></div>
+      </div>
+      <div class="scene-caption"><span class="scene-cross">+</span><span>NEON DISTRICT<br><b>35° / AFTER HOURS</b></span><span class="scene-meter">▂ ▃ ▆ ▄ █ ▅ ▃</span></div>
+      <div class="hero-bottom"><span>SCROLL TO EXPLORE <span>↓</span></span><span>DESIGNED FOR THE CURIOUS <span class="pink">✦</span></span></div>
+    </section>
+
+    <div class="signal-strip" aria-label="个人关键词"><span class="signal-label">ON MY RADAR <span>↗</span></span><div id="skill-strip"></div><span class="signal-end">IDEAS NEVER SLEEP.</span></div>
+
+    <section class="section work-section" id="work" aria-labelledby="work-title">
+      <div class="section-heading"><div><p class="eyebrow section-eyebrow">01 / SELECTED WORK</p><h2 id="work-title">一些想法，<span>一些实现。</span></h2></div><p class="section-caption">从问题出发，向可能性靠近。<br>这里是我的项目、研究与创作。</p></div>
+      <div class="work-toolbar"><div id="project-filters" class="filters" aria-label="筛选作品"></div><span class="placeholder-note"><span></span> 当前展示为可替换的示例内容</span></div>
+      <div id="project-grid" class="project-grid"></div><p id="projects-empty" class="empty-state" hidden>这个频道还在酝酿。添加第一个作品，开始记录你的创造。</p>
+    </section>
+
+    <section class="section about-section" id="about" aria-labelledby="about-title">
+      <div class="about-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit-core">✳</div><span class="about-art-label">A WORK IN PROGRESS<br>JUST LIKE ALL GOOD THINGS.</span><span class="art-index">[ HUMAN, ALWAYS. ]</span></div>
+      <div class="about-content"><p class="eyebrow section-eyebrow">02 / THE PERSON BEHIND THE PIXELS</p><h2 id="about-title">代码之外，<br>是一个<span>好奇的人。</span></h2><div id="about-copy" class="prose"></div><div id="about-skills" class="tags"></div><div class="about-location"><span>⌖</span><span id="profile-location"></span><span class="location-dash">/</span><span>此刻，正在创造</span></div></div>
+    </section>
+
+    <section id="notes-section" class="section notes-section" hidden aria-labelledby="notes-title"><div class="section-heading"><div><p class="eyebrow section-eyebrow">FIELD NOTES</p><h2 id="notes-title">沿途的<span>碎片。</span></h2></div></div><div id="notes-list"></div></section>
+
+    <section class="arcade-banner"><div class="arcade-icon" aria-hidden="true">↯</div><div><p class="eyebrow">A LITTLE DETOUR / 一个小彩蛋</p><h2>灵感堵车了？<span>去兜一圈。</span></h2><p>驶入霓虹公路。没有目的地，只有下一道弯。</p></div><button class="button button-yellow launch-game" type="button">启动夜行模式 <span>↗</span></button><span class="arcade-checker" aria-hidden="true"></span></section>
+
+    <section class="section contact-section" id="contact" aria-labelledby="contact-title"><p class="eyebrow section-eyebrow">03 / OPEN A NEW CHANNEL</p><div class="contact-row"><h2 id="contact-title">下一个有趣的想法，<br>也许从一句<span>「你好」</span>开始。</h2><div class="contact-actions"><span id="availability" class="availability"></span><a id="email-link" class="contact-link" hidden>打个招呼 <span>↗</span></a><button id="contact-placeholder" class="contact-link editor-open" type="button">添加我的联系方式 <span>↗</span></button><div id="social-links" class="social-links"></div></div></div></section>
+  </main>
+
+  <footer class="footer"><a class="footer-brand" href="#">✳ NIGHTSHIFT</a><span id="footer-credit"></span><div class="footer-tools"><button id="motion-toggle" type="button" aria-pressed="false">动态效果 <span>ON</span></button><button class="editor-open" type="button">内容编辑 ↗</button><a href="#">回到顶部 ↑</a></div></footer>
+  <noscript><div class="noscript-notice">个人主页需要 JavaScript 显示可编辑内容和游戏。请开启 JavaScript，或查看项目中的 content.json 获取资料。</div></noscript>
+
+  <dialog id="project-dialog" class="project-dialog"><div class="dialog-top"><span class="eyebrow">PROJECT FILE</span><button class="icon-button close-dialog" type="button" aria-label="关闭项目详情">✕</button></div><div id="project-detail"></div></dialog>
+
+  <dialog id="editor-dialog" class="editor-dialog"><div class="dialog-top"><div><span class="eyebrow">YOUR SPACE, YOUR STORY</span><h2>写下你的故事<span>。</span></h2></div><button class="icon-button close-dialog" type="button" aria-label="关闭内容编辑器">✕</button></div><p id="editor-mode" class="editor-mode">资料保存在当前浏览器。可导出备份，用于之后更新网站。</p>
+    <div class="editor-tabs" role="tablist" aria-label="编辑内容类别"><button role="tab" id="tab-profile" aria-controls="panel-profile" aria-selected="true" data-panel="profile">个人资料</button><button role="tab" id="tab-projects" aria-controls="panel-projects" aria-selected="false" data-panel="projects" tabindex="-1">项目作品</button><button role="tab" id="tab-notes" aria-controls="panel-notes" aria-selected="false" data-panel="notes" tabindex="-1">文章动态</button></div>
+    <aside id="github-publish-help" class="editor-publish-help" hidden><p>更新公开网站：编辑 → 导出资料 → 在 GitHub 替换内容文件并提交。</p><div><a href="https://github.com/lexstark335-ctrl/index.html/edit/main/nightshift/dist/content.json" target="_blank" rel="noopener noreferrer">在 GitHub 更新公开资料 ↗</a><a href="https://github.com/lexstark335-ctrl/index.html/blob/main/nightshift/CONTENT-GUIDE.md" target="_blank" rel="noopener noreferrer">查看操作说明 ↗</a></div></aside>
+    <form id="editor-form"><div id="panel-profile" role="tabpanel" aria-labelledby="tab-profile" class="editor-panel"><div class="form-grid"><label>姓名 / 昵称<input name="name" maxlength="60" required></label><label>英文名 / 标识<input name="englishName" maxlength="80"></label><label class="full">身份与方向<input name="role" maxlength="120"></label><label class="full">首屏标题 <small>换行分为两行</small><textarea name="headline" rows="2" maxlength="120" required></textarea></label><label class="full">简短介绍<textarea name="intro" rows="3" maxlength="500"></textarea></label><label class="full">关于我<textarea name="about" rows="6" maxlength="8000"></textarea></label><label>所在位置<input name="location" maxlength="80"></label><label>交流状态<input name="availability" maxlength="120"></label><label class="full">关键词 <small>使用中文或英文逗号分隔</small><input name="skills" maxlength="400"></label><label class="full">联系邮箱<input name="email" type="email" maxlength="180" placeholder="填写后显示邮件联系入口"></label><label>GitHub 链接<input name="github" type="url" placeholder="https://github.com/…"></label><label>其他个人链接<input name="social" type="url" placeholder="https://…"></label></div></div>
+      <div id="panel-projects" role="tabpanel" aria-labelledby="tab-projects" class="editor-panel" hidden><p class="field-hint">在这里添加真实项目。保留空链接时，访客仍可查看项目详情。</p><div id="project-edit-list"></div><button id="add-project" class="button button-outline small-button" type="button">＋ 添加项目</button></div>
+      <div id="panel-notes" role="tabpanel" aria-labelledby="tab-notes" class="editor-panel" hidden><p class="field-hint">没有文章时，主页会自动隐藏此栏目。</p><div id="note-edit-list"></div><button id="add-note" class="button button-outline small-button" type="button">＋ 添加文章 / 动态</button></div>
+      <div id="editor-message" role="status" class="editor-message"></div><div class="editor-save-row"><button class="button button-yellow" type="submit">保存并更新主页 <span>↗</span></button></div>
+    </form><div class="editor-backup"><button id="export-content" type="button">↓ 导出当前资料</button><label class="import-label" for="import-content">↑ 导入 JSON 资料<input type="file" id="import-content" accept="application/json,.json" hidden></label><button id="reset-content" type="button">恢复文件中的资料</button></div><p class="editor-footnote">这是本地内容编辑工具。线上静态版本的修改只影响当前浏览器；要让所有访客看到更新，请替换 content.json 并重新部署。</p>
+  </dialog>
+
+  <dialog id="game-dialog" class="game-dialog" aria-labelledby="game-title"><div class="game-header"><a class="game-wordmark" href="#" tabindex="-1">NIGHTSHIFT <span>// ARCADE</span></a><div class="game-controls"><button id="game-sound" type="button" aria-pressed="false" aria-label="开启游戏音效">音效 OFF</button><button id="game-pause" type="button">暂停 <span>P</span></button><button id="game-exit" class="icon-button" type="button" aria-label="退出赛车">✕</button></div></div><div class="game-stage"><canvas id="game-canvas" aria-label="三维霓虹赛车画面"></canvas><div class="game-hud"><div><span>SCORE</span><b id="game-score">000000</b></div><div><span>BEST</span><b id="game-best">000000</b></div><div class="speed-hud"><b id="game-speed">000</b><span>KM/H</span></div></div><div id="game-overlay" class="game-overlay"><p class="eyebrow">LEAVE THE ORDINARY BEHIND</p><h2 id="game-title">霓虹<span>夜行</span><small>NEON AFTERHOURS</small></h2><p id="game-status">握紧方向，驶向未知。<br>避开来车，刷新属于你的夜行纪录。</p><button id="game-start" class="button button-yellow" type="button">开始夜行 <span>↗</span></button><p class="game-overlay-hint">A / D 或 ← / → 转向 · W / ↑ 加速 · P 暂停</p></div><div id="game-pop" class="game-pop" aria-live="polite"></div><div class="touch-controls"><button id="steer-left" aria-label="向左转向" type="button">←</button><button id="steer-right" aria-label="向右转向" type="button">→</button></div><button id="game-boost" class="boost-button" type="button">↯ <span>BOOST</span><small>W / ↑</small></button><div id="game-error" class="game-error" hidden></div></div><div class="game-bottom"><span><span class="live-dot"></span> ORIGINAL ARCADE / 霓虹公路</span><span>ESC 退出 · 本地最高分自动保存</span></div></dialog>
+  <div id="toast" class="toast" role="status"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
