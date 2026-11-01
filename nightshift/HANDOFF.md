@@ -16,10 +16,10 @@
 - GitHub 账号：`lexstark335-ctrl`。
 - 发布仓库：`lexstark335-ctrl/index.html`，公开仓库，默认分支 `main`。
 - 仓库已有 GitHub Pages 的成功部署历史，可沿用现有发布机制。
-- 计划上传目录：`nightshift/`；公开入口 `nightshift/dist/index.html`；仓库根目录新增 `index.html` 作为主页跳转入口。
-- 预计入口：`https://lexstark335-ctrl.github.io/index.html/`。
-- 预计主页地址：`https://lexstark335-ctrl.github.io/index.html/nightshift/dist/`。
-- **本段发布状态待本次执行结束后根据实际结果更新；不要把预计 URL 当作已上线。**
+- 已上传目录：`nightshift/`；公开入口 `nightshift/dist/index.html`；仓库根目录已新增 `index.html` 作为主页跳转入口。
+- 公开入口：https://lexstark335-ctrl.github.io/index.html/ 。
+- 主页直达：https://lexstark335-ctrl.github.io/index.html/nightshift/dist/ 。
+- **GitHub Pages 首次部署已成功。** 网页代码提交为 `4130060ee56a356e17255d048e892db0ffcffb65`，部署记录见本文末尾；浏览器视觉验收仍未完成。
 
 ## 已完成内容
 
@@ -51,6 +51,8 @@
 ## 文件与运行方式
 
 本地项目目录：`outputs/nightshift-homepage/`。GitHub 项目目录：`nightshift/`。
+
+离线 HTML 是生成产物，包含在本地交付包；GitHub 源码中通过 `npm run standalone` 生成。GitHub 未上传 `.openai/`、`.git/`、测试临时目录和凭证。本地 `.git` 仅为此前尝试初始化的空仓库，尚未与 GitHub 历史同步；不要直接推送这份空历史覆盖远端。
 
 | 文件 | 作用 |
 | --- | --- |
@@ -95,7 +97,7 @@ npm run standalone
 
 ## 待解决问题
 
-1. 完成本次 GitHub 上传与 Pages 发布确认，记录提交与部署证据。
+1. GitHub 上传与 Pages 首次发布已完成；后续有新提交时重新检查对应 Pages 工作流，不能沿用旧部署结论。
 2. 在可操作的浏览器中完成主页→项目详情→编辑→赛车→退出的完整验收。
 3. 用户补充真实姓名、研究/工作方向、个人简介、项目/论文/作品、邮箱与链接；目前不能编造这些内容。
 4. GitHub Pages 为静态托管，不具备安全的在线写回后台。如需登录后台、跨设备编辑和上传附件，另行设计有认证的后端；不要把 GitHub Token 放进网页。
@@ -104,7 +106,7 @@ npm run standalone
 
 ## 后续安排
 
-优先级 P0：确认公开链接能打开、Pages 部署成功；提供简单清晰的资料更新入口和指南。
+优先级 P0：Pages 部署成功、资料更新入口和指南已完成；仍需用户环境中的实际打开与浏览器验收。
 
 优先级 P1：完成真实桌面和手机验收；修复实际发现的显示、交互或性能问题。
 
@@ -125,6 +127,8 @@ npm run standalone
 - **临时凭证短期有效。** 曾发生源仓库凭证过期；不得将凭证落盘或写入本文件。
 - **临时目录的重命名权限不同。** 系统临时目录中文件替换报 `EPERM`，工作区临时目录通过；测试使用项目 `work/` 并校验清理路径。
 - **GitHub 仓库已有内容。** 初始 `main` 为 `9958e6931e01b8b9a44497102a7590f7a973e945`，含 `idex.html` 与 `stm32l552-power-lab/`。上传应基于当前树添加主页，避免覆盖其他项目。
+- **GitHub 连接器可用，命令行网络不可用。** 本次改用连接器的 blob/tree/commit/ref API 提交，保留远端原有历史；未使用本地空仓库强推。大型库分段读取并核对 Git blob SHA 后上传，不在对话里打印完整代码或凭证。
+- **部署成功与浏览器访问是两类证据。** GitHub 的部署日志已经报告成功并给出公开 URL；网页读取工具仍无法读取该域名。因此可以确认部署成功，不能宣称已用浏览器看过画面。
 
 ## 来源与授权
 
@@ -132,4 +136,12 @@ npm run standalone
 
 ## 发布执行记录
 
-本次正在执行 GitHub 发布。此处将在获取实际提交和 Pages 结果后追加，不能根据预计地址推断成功。
+已通过 GitHub 连接器完成首次发布：
+
+- 源码提交：[`4130060ee56a356e17255d048e892db0ffcffb65`](https://github.com/lexstark335-ctrl/index.html/commit/4130060ee56a356e17255d048e892db0ffcffb65)。
+- Pages 工作流：[`41316490202`](https://github.com/lexstark335-ctrl/index.html/actions/runs/41316490202)，`completed / success`。
+- `build`、`report-build-status`、`deploy` 三个任务均成功。
+- 部署日志于 2026-11-01 22:30:45（Asia/Shanghai）报告 `Reported success!`，环境 URL 为 `https://lexstark335-ctrl.github.io/index.html/`。
+- 仓库新树包含 25 个 `nightshift/` 项目文件；原 `idex.html` 的 blob SHA 和 `stm32l552-power-lab/` 的 tree SHA 均与发布前一致。
+- 完整交接在 `nightshift/HANDOFF.md`；仓库根目录 `HANDOFF.md` 提供入口。
+- 后续补交接文档的提交会产生新的 Pages 工作流；下一次工作应查询最新记录。

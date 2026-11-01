@@ -10,7 +10,7 @@ GitHub Pages 入口：https://lexstark335-ctrl.github.io/index.html/ 。主页�
 
 ## 运行
 
-最快预览：双击项目中的 `双击打开主页.html`，可直接查看主页和玩赛车，无须本地服务。该离线版内嵌全部代码与资料，修改保存在当前浏览器，可导出 JSON 备份。更新 `dist/content.json` 后运行 `npm run standalone` 重新生成离线文件。
+最快在线访问：打开上方 GitHub Pages 地址。本地交付包还包含 `双击打开主页.html`，可直接查看主页和玩赛车，无须本地服务。若从 GitHub 下载源码，先运行 `npm run standalone` 生成该文件。离线版内嵌全部代码与资料，修改保存在当前浏览器，可导出 JSON 备份。更新 `dist/content.json` 后需要重新生成离线文件。
 
 如需将资料直接写回项目配置文件，使用下方本地服务方式。
 
